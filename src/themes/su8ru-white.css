@@ -1,0 +1,71 @@
+/* @theme su8ru-white */
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Noto+Sans+JP&display=swap');
+
+h1 {
+  color: var(--su8ru-main);
+  margin-top: 1rem;
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+h2 {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+h1 + h2 {
+  margin-top: 0;
+}
+
+p,
+ul,
+ol,
+blockquote {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+li + li,
+li > ul {
+  margin-top: 0.4rem;
+}
+li::marker {
+  color: var(--su8ru-gray);
+}
+
+section::after {
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+}
+
+.columns {
+  color: #272a2c;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+:root {
+  --su8ru-main: oklch(0.65 0.05 240);
+  --su8ru-dark: oklch(0.5 0.05 240);
+  --su8ru-gray: oklch(0.6 0.03 240);
+  --su8ru-black: oklch(0.25 0.02 240);
+}
+
+section {
+  font-family: Inter, 'Noto Sans JP', sans-serif !important;
+  --fgColor-accent: var(--su8ru-dark);
+  --fgColor-default: var(--su8ru-black);
+  --header-footer-color: var(--su8ru-gray);
+  --paginate-color: var(--su8ru-gray);
+}
+
+pre {
+  font-size: 0.5rem;
+  line-height: 1.5;
+}
+
+img {
+  background: none !important;
+}

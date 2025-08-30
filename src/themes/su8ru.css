@@ -1,0 +1,131 @@
+/* @theme su8ru */
+
+@import 'default';
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&family=JetBrains+Mono:wght@100..800&family=Zen+Kaku+Gothic+New:wght@500;700&display=swap');
+
+h1 {
+  background-image: linear-gradient(
+    90deg,
+    var(--su8ru-accent) 0%,
+    var(--su8ru-accent2) 80%
+  );
+  background-clip: text;
+  color: transparent;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  line-height: 1.6;
+  font-size: 1.6rem;
+}
+
+img + h1 {
+  margin-top: 0;
+}
+
+h2 {
+  color: var(--su8ru-main);
+  margin-top: 1rem;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+p,
+ul,
+ol {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+pre,
+blockquote {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+li + li,
+li > ul {
+  margin-top: 0.4rem;
+}
+li::marker {
+  color: var(--su8ru-gray);
+}
+
+section::after {
+  content: attr(data-marpit-pagination) ' / ' attr(data-marpit-pagination-total);
+}
+
+.col2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.col3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.col2 > * {
+  margin: 0;
+}
+
+:root {
+  --su8ru-main: oklch(0.6 0.08 245);
+  --su8ru-accent: oklch(0.75 0.12 245);
+  --su8ru-accent2: oklch(0.75 0.12 185);
+  --su8ru-white: oklch(0.95 0.01 245);
+  --su8ru-gray: oklch(0.55 0.04 245);
+  --su8ru-black: oklch(0.39 0.03 245);
+}
+
+section {
+  font-family: Inter, 'Zen Kaku Gothic New', sans-serif;
+  --fontStack-monospace: 'JetBrains Mono', monospace;
+  font-weight: 500;
+
+  background: var(--su8ru-white);
+
+  --fgColor-accent: var(--su8ru-main);
+  --fgColor-default: var(--su8ru-black);
+  --fgColor-muted: var(--su8ru-gray);
+  --header-footer-color: var(--su8ru-gray);
+  --paginate-color: var(--su8ru-gray);
+}
+
+strong {
+  font-weight: 700;
+}
+
+pre {
+  font-size: 0.7rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+img {
+  background: none !important;
+}
+
+.qrcode {
+  display: block;
+  position: absolute;
+  right: 32px;
+  bottom: 70px;
+}
+
+blockquote > blockquote > blockquote {
+  font-size: 50%;
+  font-weight: 400;
+  padding: 0;
+  padding-top: 0.25rem;
+  margin: 0;
+  border: 0;
+  border-top: 0.01rem solid var(--su8ru-gray);
+  position: absolute;
+  width: 800px;
+  bottom: 80px;
+  left: 80px;
+
+  & > ol > li {
+    margin-top: 0;
+  }
+}
