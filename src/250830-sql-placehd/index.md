@@ -211,9 +211,7 @@ func ctxDriverQuery(
 	if queryerCtx != nil {
 		return queryerCtx.QueryContext(ctx, query, nvdargs) // into
 	}
-
-	return queryer.Query(query, dargs)
-}
+//...
 ```
 ↓ここからドライバー
 ```go
@@ -221,7 +219,7 @@ func (cn *conn) QueryContext(
   ctx context.Context, query string, args []driver.NamedValue) (driver.Rows, error) {
 
 	finish := cn.watchCancel(ctx)
-	r, err := cn.query(query, list) // into
+	r, err := cn.query(query, list) //おっ
 }
 ```
 ---
