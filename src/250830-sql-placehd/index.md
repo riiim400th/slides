@@ -129,7 +129,9 @@ row := db.QueryRow(query, userID)
 
 ---
 
-
+<!--
+header: ライブラリを見てみる
+-->
 
 
 
@@ -140,12 +142,10 @@ row := db.QueryRow(query, userID)
 ### はじめに
 
 go言語のライブラリを見ていきます
-今回はpostgresqlの話です
+今回はPostgre SQL
 
 ---
-<!--
-header: ライブラリを見てみる
--->
+
 
 ```go
 //main.go
@@ -163,9 +163,9 @@ func main() {
 	db, err := sql.Open("postgres", dbURL)
 	defer db.Close()
 
-	userID := 1
+  name := "alice"
 	query := "SELECT * FROM users WHERE name = $1"
-	row := db.QueryRow(query, userID) //ここをbreak pointにする
+	row := db.QueryRow(query, name) //break point
 ...
 ```
 ---
@@ -180,7 +180,8 @@ database/sqlはドライバー非依存のインターフェース
 ---
 
 ```go
-row := db.QueryRow(query, userID) //main.go
+//main.go
+row := db.QueryRow(query, userID) //into
 ```
 ↓
 ```go
@@ -320,7 +321,7 @@ func (st *stmt) exec(v []driver.Value) {
 ```
 
 ---
-P,Bってなんなのか
+P,B,Eはなんなのか
 
 これはクライアントがDBサーバーにバイト送信するときの "メッセージタイプ" というもの
 **拡張クエリプロトコル** で定義されている
@@ -489,6 +490,16 @@ func (cn *conn) simpleQuery(q string) (res *rows, err error) {
 | PostgreSQL | ○             | Extended Query Protocol (`Parse` → `Bind` → `Execute`)        |
 | MySQL      | ○             | Prepared Statements Protocol (`COM_STMT_PREPARE` → `EXECUTE`) |
 | SQLite3    | ○             | C_API レベルでプリペアードステートメント（組み込み型）                                  |
+
+---
+
+### 参考
+
+- [lib/pq](https://github.com/lib/pq)
+
+- [PosgreSQL拡張クエリプロトコル](https://www.postgresql.org/docs/current/protocol-flow.html#PROTOCOL-FLOW-SIMPLE-QUERY)
+
+- []
 
 ---
 
